@@ -20,7 +20,7 @@ const sendEmail = (staticForm: StaticForm) =>
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify({ ...staticForm, token: 'dgsdfgsdfgsdfg64sdfg46sdfgs5dfg' })
+		body: JSON.stringify(staticForm)
 	});
 
 export const POST: RequestHandler = async (event) => {
