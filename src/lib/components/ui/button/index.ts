@@ -10,5 +10,5 @@ export {
 	type ButtonVariant,
 	buttonVariants,
 	type ButtonProps as Props,
-	Root
+	Root,
 };

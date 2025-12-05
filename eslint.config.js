@@ -13,17 +13,17 @@ export default antfu(
 			'perfectionist/sort-imports': [
 				'error',
 				{
-					tsconfigRootDir: '.'
-				}
+					tsconfigRootDir: '.',
+				},
 			],
 			'unicorn/filename-case': [
 				'error',
 				{
 					case: 'kebabCase',
-					ignore: ['README.md']
-				}
-			]
-		}
+					ignore: ['README.md'],
+				},
+			],
+		},
 	},
 	prettier
 );

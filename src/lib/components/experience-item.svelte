@@ -1,22 +1,27 @@
 <script lang="ts">
 	import type { Experience } from '@/types';
 
-	const { experience, index } = $props<{ experience: Experience; index: number }>();
-	const background = index === 0 ? 'bg-primary' : 'bg-muted';
+	interface Props {
+		experience: Experience;
+	}
+
+	const { experience }: Props = $props();
+
+	const background = $derived(experience.isCurrent ? 'bg-primary' : 'bg-muted');
 </script>
 
 <li class="ms-4">
 	<div class="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full border {background}"></div>
 	<div class="flex flex-row items-center gap-2">
 		<div class="text-md font-medium">{experience.title}</div>
-		{#if index === 0}
+		{#if experience.isCurrent}
 			<div
-				class="border-muted text-muted-foreground inline-block rounded-full border px-1 py-0 text-xs
+				class="inline-block rounded-full border border-muted px-1 py-0 text-xs text-muted-foreground
 				uppercase"
 			>
-				Present
+				Current
 			</div>
 		{/if}
 	</div>
-	<div class="text-muted-foreground mb-4 text-sm font-normal">{experience.at}</div>
+	<div class="mb-4 text-sm font-normal text-muted-foreground">{experience.at}</div>
 </li>

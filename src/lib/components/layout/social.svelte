@@ -4,16 +4,20 @@
 	const socials = {
 		X: {
 			link: 'https://x.com/IslamZaouiDev',
-			icon: Icons.XIcon
+			icon: Icons.XIcon,
 		},
 		github: {
 			link: 'https://github.com/IslamZaoui',
-			icon: Icons.GithubIcon
+			icon: Icons.GithubIcon,
 		},
 		youtube: {
 			link: 'https://www.youtube.com/@IslamZaouiDev',
-			icon: Icons.YoutubeIcon
-		}
+			icon: Icons.YoutubeIcon,
+		},
+		linkedin: {
+			link: 'https://www.linkedin.com/in/islamzaoui',
+			icon: Icons.LinkedinIcon,
+		},
 	};
 </script>
 

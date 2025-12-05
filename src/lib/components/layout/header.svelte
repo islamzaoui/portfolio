@@ -9,7 +9,7 @@
 	<div class="flex w-full flex-col gap-1">
 		<enhanced:img class="size-[60px]" src="@/assets/pfp.png" alt="profile" />
 		<h1 class="text-lg font-bold">Islam Zaoui</h1>
-		<p class="text-muted-foreground">Full Stack Web Developer</p>
+		<p class="text-muted-foreground">Backend-Focused Full-Stack Engineer</p>
 	</div>
 
 	<nav class="my-5 flex w-full items-center justify-between">

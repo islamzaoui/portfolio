@@ -6,29 +6,29 @@
 	import { Input } from '@/components/ui/input';
 	import { Label } from '@/components/ui/label';
 	import { Textarea } from '@/components/ui/textarea';
-	import { contactForm } from '@/contact.remote';
+	import { contactForm } from '@/remote/contact.remote';
 	import { contactSchema } from '@/schema';
 </script>
 
 <form {...contactForm.preflight(contactSchema).enhance} class="flex flex-col gap-6">
-	<div class="flex flex-col gap-4 md:flex-row">
+	<div class="flex flex-col gap-4 md:flex-row md:items-start">
 		<div class="grid flex-1 gap-2">
 			<Label class="mb-1 text-lg font-semibold" for="name">Name</Label>
 			<Input {...contactForm.fields.name.as('text')} autocomplete="name" placeholder="John Doe" />
 			{#each contactForm.fields.name.issues() as issue}
-				<small class="text-destructive-foreground">{issue.message}</small>
+				<small class="text-destructive">{issue.message}</small>
 			{/each}
 		</div>
 
 		<div class="grid flex-1 gap-2">
-			<Label class="mb-1 text-lg font-semibold" for="email">Your Email</Label>
+			<Label class="mb-1 text-lg font-semibold" for="email">Email</Label>
 			<Input
 				{...contactForm.fields.email.as('email')}
 				autocomplete="email"
 				placeholder="your@email.com"
 			/>
 			{#each contactForm.fields.email.issues() as issue}
-				<small class="text-destructive-foreground">{issue.message}</small>
+				<small class="text-destructive">{issue.message}</small>
 			{/each}
 		</div>
 	</div>
@@ -37,7 +37,7 @@
 		<Label class="mb-1 text-lg font-semibold" for="subject">Subject</Label>
 		<Input {...contactForm.fields.subject.as('text')} placeholder="What is this about?" />
 		{#each contactForm.fields.subject.issues() as issue}
-			<small class="text-destructive-foreground">{issue.message}</small>
+			<small class="text-destructive">{issue.message}</small>
 		{/each}
 	</div>
 
@@ -50,7 +50,7 @@
 			placeholder="Your message here..."
 		/>
 		{#each contactForm.fields.message.issues() as issue}
-			<small class="text-destructive-foreground">{issue.message}</small>
+			<small class="text-destructive">{issue.message}</small>
 		{/each}
 	</div>
 
@@ -58,10 +58,10 @@
 		<Button
 			class="w-[150px] space-x-2"
 			variant="outline"
-			title="send message"
-			disabled={contactForm.pending > 0}
+			{...contactForm.buttonProps}
+			disabled={!!contactForm.pending}
 		>
-			{#if contactForm.pending > 0}
+			{#if !!contactForm.pending}
 				<Loading class="animate-spin" />
 			{:else}
 				<SendIcon />

@@ -1,5 +1,0 @@
-name = "portfolio"
-main = ".svelte-kit/cloudflare/_worker.js"
-compatibility_date = "2025-01-01"
-assets.binding = "ASSETS"
-assets.directory = ".svelte-kit/cloudflare"

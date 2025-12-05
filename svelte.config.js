@@ -8,17 +8,17 @@ const config = {
 		adapter: alchemy(),
 		alias: {
 			'@': 'src/lib',
-			'@/*': 'src/lib/*'
+			'@/*': 'src/lib/*',
 		},
 		experimental: {
-			remoteFunctions: true
-		}
+			remoteFunctions: true,
+		},
 	},
 	compilerOptions: {
 		experimental: {
-			async: true
-		}
-	}
+			async: true,
+		},
+	},
 };
 
 export default config;

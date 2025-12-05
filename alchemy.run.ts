@@ -7,11 +7,9 @@ import packageJson from './package.json' with { type: 'json' };
 const app = await alchemy(packageJson.name);
 
 export const worker = await SvelteKit('website', {
-	name: `portfolio`
+	name: `portfolio`,
 });
 
-console.log({
-	url: worker.url
-});
+console.log(`Started in: ${worker.url}`);
 
 await app.finalize();

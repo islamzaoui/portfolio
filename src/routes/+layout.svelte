@@ -1,7 +1,6 @@
 <script lang="ts">
 	import '../app.css';
 
-	import '@fontsource-variable/geist-mono';
 	import { ModeWatcher } from 'mode-watcher';
 
 	import { Header } from '@/components/layout';
@@ -67,7 +66,7 @@
 			title="Visit this site github repository"
 			aria-label="Visit this site github repository (opens in new tab)"
 		>
-			source code
+			Source Code
 		</a>
 	</footer>
 </div>
