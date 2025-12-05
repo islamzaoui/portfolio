@@ -2,8 +2,6 @@
 	import { ContactForm } from '@/components/contact';
 	import ExperienceItem from '@/components/experience-item.svelte';
 	import { experiences } from '@/data';
-
-	const { data } = $props();
 </script>
 
 <section id="about" class="w-full space-y-4">
@@ -40,6 +38,6 @@
 	</p>
 
 	<div class="mt-6 md:mt-8">
-		<ContactForm {data} />
+		<ContactForm />
 	</div>
 </section>

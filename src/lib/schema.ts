@@ -5,16 +5,13 @@ export const contactSchema = z.object({
 		.string()
 		.trim()
 		.min(1, 'Your name is required')
-		.max(70, 'Your name must be less than 20 characters')
+		.max(70, 'Your name must be less than 70 characters')
 		.regex(/^[a-z\s]+$/i, 'Your name must only contain letters'),
-	email: z.string({ required_error: 'Your email is required' }).email('Invalid email'),
+	email: z.email('A valid email is required'),
 	subject: z
 		.string()
 		.trim()
 		.min(1, 'Subject is required')
 		.max(50, { message: 'Subject must be less than 100 characters' }),
-	message: z.string().trim().min(1, 'Message is required'),
-	'g-recaptcha-response': z.string().trim().min(1, 'g-recaptcha-response is required')
+	message: z.string().trim().min(1, 'Message is required')
 });
-
-export type ContactForm = z.infer<typeof contactSchema>;

@@ -1,26 +1,22 @@
-import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import alchemy from 'alchemy/cloudflare/sveltekit';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter({
-			config: undefined,
-			platformProxy: {
-				configPath: undefined,
-				environment: undefined,
-				persist: undefined
-			},
-			fallback: 'plaintext',
-			routes: {
-				include: ['/*'],
-				exclude: ['<all>']
-			}
-		}),
+		adapter: alchemy(),
 		alias: {
 			'@': 'src/lib',
 			'@/*': 'src/lib/*'
+		},
+		experimental: {
+			remoteFunctions: true
+		}
+	},
+	compilerOptions: {
+		experimental: {
+			async: true
 		}
 	}
 };
