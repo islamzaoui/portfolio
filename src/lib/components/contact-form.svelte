@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Loading from '@lucide/svelte/icons/loader-circle';
 	import SendIcon from '@lucide/svelte/icons/send-horizontal';
+	import { toast } from 'svelte-sonner';
 
 	import { Button } from '@/components/ui/button';
 	import { Input } from '@/components/ui/input';
@@ -10,7 +11,26 @@
 	import { contactSchema } from '@/schema';
 </script>
 
-<form {...contactForm.preflight(contactSchema).enhance} class="flex flex-col gap-6">
+<form
+	{...contactForm.preflight(contactSchema).enhance(async ({ submit, form }) => {
+		try {
+			await submit();
+
+			if (contactForm.result!.success) {
+				toast.success(contactForm.result!.message);
+				form.reset();
+				return;
+			}
+
+			toast.error(contactForm.result!.message);
+		} catch (err) {
+			console.error(err);
+			toast.error('An unexpected error occurred. Please try again later.');
+		}
+	})}
+	oninput={() => contactForm.validate()}
+	class="flex flex-col gap-6"
+>
 	<div class="flex flex-col gap-4 md:flex-row md:items-start">
 		<div class="grid flex-1 gap-2">
 			<Label class="mb-1 text-lg font-semibold" for="name">Name</Label>
@@ -58,7 +78,7 @@
 		<Button
 			class="w-[150px] space-x-2"
 			variant="outline"
-			{...contactForm.buttonProps}
+			type="submit"
 			disabled={!!contactForm.pending}
 		>
 			{#if !!contactForm.pending}

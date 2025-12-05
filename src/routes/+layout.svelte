@@ -4,6 +4,7 @@
 	import { ModeWatcher } from 'mode-watcher';
 
 	import { Header } from '@/components/layout';
+	import { Toaster } from '@/components/ui/sonner';
 	import { url } from '@/data';
 
 	const { children } = $props();
@@ -45,6 +46,7 @@
 </svelte:head>
 
 <ModeWatcher defaultMode="dark" />
+<Toaster position="top-right" />
 
 <div class="contents">
 	<div class="min-h-screen px-6 antialiased">

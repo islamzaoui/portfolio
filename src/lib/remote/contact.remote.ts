@@ -1,4 +1,3 @@
-import { invalid } from '@sveltejs/kit';
 import { form } from '$app/server';
 
 import { email } from '@/data';
@@ -16,6 +15,11 @@ export const contactForm = form(contactSchema, async (data) => {
 
 	if (res.error) {
 		console.error('Resend error:', res.error);
-		return invalid('Failed to send contact email, please try again later.');
+		return {
+			success: false,
+			message: 'Failed to send message. Please try again later.',
+		};
 	}
+
+	return { success: true, message: 'Message sent successfully!' };
 });

@@ -12,7 +12,7 @@ export const email = PUBLIC_CONTACT_EMAIL;
 export const experiences: Experience[] = [
 	{
 		title: 'Lead Back-End Engineer',
-		at: 'Himmob',
+		at: 'Himmob & Techssales',
 		isCurrent: true,
 	},
 	{
