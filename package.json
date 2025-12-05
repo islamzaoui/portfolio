@@ -1,10 +1,9 @@
 {
 	"name": "portfolio",
 	"type": "module",
-	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"prepare": "svelte-kit sync || echo ''",
+		"prepare": "husky && (svelte-kit sync || echo '')",
 		"dev": "alchemy dev",
 		"build": "vite build",
 		"preview": "vite preview",
@@ -36,6 +35,8 @@
 		"eslint-config-prettier": "10.1.8",
 		"eslint-plugin-svelte": "3.13.1",
 		"globals": "16.5.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
 		"mode-watcher": "1.1.0",
 		"prettier": "3.7.4",
 		"prettier-plugin-svelte": "3.3.3",
@@ -52,5 +53,11 @@
 		"typescript-eslint": "8.48.1",
 		"vite": "7.2.6",
 		"zod": "4.1.13"
+	},
+	"lint-staged": {
+		"*.(ts|svelte|js|json|css|md)": [
+			"bun format",
+			"bun lint --fix"
+		]
 	}
 }

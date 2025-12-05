@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+import { url } from '@/data';
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:news="https://www.google.com/schemas/sitemap-news/0.9"
@@ -8,7 +10,13 @@
   xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 >
   <url>
-    <loc>https://www.islamzaoui.top/</loc>
-    <lastmod>2025-05-26T11:14:41+00:00</lastmod>
+    <loc>${url}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
   </url>
-</urlset>
+</urlset>`;
+
+export async function GET() {
+	return new Response(sitemap, {
+		headers: { 'Content-Type': 'application/xml' },
+	});
+}

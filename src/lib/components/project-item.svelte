@@ -12,7 +12,7 @@
 	href={project.url}
 	target="_blank"
 	rel="noopener noreferrer"
-	class="group flex gap-4 rounded-xl border bg-muted p-4 text-card-foreground shadow-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg"
+	class="group flex gap-4 rounded-xl border bg-muted p-4 text-card-foreground transition-all duration-300 hover:border-primary/50"
 >
 	{#if project.image}
 		<div
