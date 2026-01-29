@@ -76,7 +76,7 @@
 		{/each}
 	</div>
 
-	<div class="flex flex-row justify-between gap-4">
+	<div class="flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
 		<Button
 			class="w-37.5 space-x-2"
 			variant="outline"
