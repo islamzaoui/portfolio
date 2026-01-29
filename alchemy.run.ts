@@ -12,14 +12,16 @@ const app = await alchemy(packageJson.name, {
 	stateStore: (scope) => new CloudflareStateStore(scope),
 });
 
-export const website = await SvelteKit('website');
+export const website = await SvelteKit('website', {
+	domains: ['www.islamzaoui.top'],
+});
 
 console.log(`Started in: ${website.url}`);
 
 if (process.env.PULL_REQUEST) {
 	await GitHubComment('preview-comment', {
-		owner: 'your-username',
-		repository: 'your-repo',
+		owner: 'islamzaoui',
+		repository: 'portfolio',
 		issueNumber: Number(process.env.PULL_REQUEST),
 		body: `## 🚀 Preview Deployed
 

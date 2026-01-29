@@ -5,7 +5,7 @@ import { PUBLIC_CONTACT_EMAIL } from '$env/static/public';
 
 import himmob from '@/assets/himmob.png';
 
-export const url = dev ? 'http://localhost:5173' : 'https://portfolio.zaoui-islam2021.workers.dev';
+export const url = dev ? 'http://localhost:5173' : 'https://www.islamzaoui.top';
 
 export const email = PUBLIC_CONTACT_EMAIL;
 
