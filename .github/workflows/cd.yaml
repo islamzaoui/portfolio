@@ -43,6 +43,10 @@ jobs:
           PULL_REQUEST: ${{ github.event.number }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLIC_CONTACT_EMAIL: ${{ secrets.PUBLIC_CONTACT_EMAIL }}
+          PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.PUBLIC_TURNSTILE_SITE_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
   cleanup:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed'
