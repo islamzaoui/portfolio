@@ -1,9 +1,9 @@
+import type { Experience, Project } from './types';
 import { dev } from '$app/environment';
+
 import { PUBLIC_CONTACT_EMAIL } from '$env/static/public';
 
 import himmob from '@/assets/himmob.png';
-
-import type { Experience, Project } from './types';
 
 export const url = dev ? 'http://localhost:5173' : 'https://portfolio.zaoui-islam2021.workers.dev';
 

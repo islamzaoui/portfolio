@@ -18,6 +18,7 @@ export const contactSchema = z.object({
 		.trim()
 		.min(1, 'Message is required')
 		.max(1000, 'Message must be less than 1000 characters'),
+	turnstileToken: z.string().min(1, 'Turnstile token is required'),
 });
 
 export type ContactForm = z.infer<typeof contactSchema>;

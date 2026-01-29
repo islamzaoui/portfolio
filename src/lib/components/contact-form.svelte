@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
 	import Loading from '@lucide/svelte/icons/loader-circle';
 	import SendIcon from '@lucide/svelte/icons/send-horizontal';
+	import { turnstile } from '@svelte-put/cloudflare-turnstile';
 	import { toast } from 'svelte-sonner';
 
 	import { Button } from '@/components/ui/button';
@@ -76,17 +78,27 @@
 
 	<div class="flex flex-row justify-between gap-4">
 		<Button
-			class="w-[150px] space-x-2"
+			class="w-37.5 space-x-2"
 			variant="outline"
 			type="submit"
-			disabled={!!contactForm.pending}
+			disabled={contactForm.pending > 0}
 		>
-			{#if !!contactForm.pending}
+			{#if contactForm.pending > 0}
 				<Loading class="animate-spin" />
 			{:else}
 				<SendIcon />
 			{/if}
 			<span>Submit</span>
 		</Button>
+
+		<div
+			use:turnstile
+			turnstile-sitekey={PUBLIC_TURNSTILE_SITE_KEY}
+			turnstile-theme="auto"
+			turnstile-size="normal"
+			turnstile-language="en"
+			turnstile-response-field-name="turnstileToken"
+			turnstile-response-field
+		></div>
 	</div>
 </form>
