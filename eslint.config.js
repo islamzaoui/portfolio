@@ -6,11 +6,17 @@ export default antfu(
 		type: 'app',
 		svelte: true,
 		stylistic: false,
+		ignores: ['*.md'],
 		rules: {
 			'no-console': ['warn'],
 			'antfu/no-top-level-await': ['off'],
 			'node/no-process-env': ['error'],
-			'perfectionist/sort-imports': ['error'],
+			'perfectionist/sort-imports': [
+				'error',
+				{
+					newlinesBetween: 1,
+				},
+			],
 			'unicorn/filename-case': [
 				'error',
 				{

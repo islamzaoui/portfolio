@@ -1,22 +1,33 @@
 /* eslint-disable node/no-process-env */
 /* eslint-disable no-console */
-import process from 'node:process';
 import alchemy from 'alchemy';
-import { SvelteKit } from 'alchemy/cloudflare';
+import { RedirectRule, SvelteKit } from 'alchemy/cloudflare';
 import { GitHubComment } from 'alchemy/github';
 import { CloudflareStateStore } from 'alchemy/state';
+import process from 'node:process';
 
 import packageJson from './package.json' with { type: 'json' };
 
 const app = await alchemy(packageJson.name, {
+	phase: process.argv.includes('--destroy') ? 'destroy' : 'up',
 	stateStore: (scope) => new CloudflareStateStore(scope),
 });
 
 export const website = await SvelteKit('website', {
+	adopt: true,
 	domains: ['www.islamzaoui.top'],
 });
 
 console.log(`Started in: ${website.url}`);
+
+await RedirectRule('apex-to-www', {
+	zone: 'islamzaoui.top',
+	description: 'Redirect islamzaoui.top to www.islamzaoui.top',
+	expression: 'http.host eq "islamzaoui.top"',
+	targetUrl: 'https://www.islamzaoui.top',
+	statusCode: 301,
+	preserveQueryString: true,
+});
 
 if (process.env.PULL_REQUEST) {
 	await GitHubComment('preview-comment', {

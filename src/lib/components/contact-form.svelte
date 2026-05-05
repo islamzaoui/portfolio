@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
 	import Loading from '@lucide/svelte/icons/loader-circle';
 	import SendIcon from '@lucide/svelte/icons/send-horizontal';
 	import { turnstile } from '@svelte-put/cloudflare-turnstile';
+	import { PUBLIC_TURNSTILE_SITE_KEY } from '$env/static/public';
 	import { toast } from 'svelte-sonner';
 
 	import { Button } from '@/components/ui/button';

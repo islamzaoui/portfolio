@@ -2,9 +2,9 @@
 	import { ModeWatcher } from 'mode-watcher';
 
 	import { Header } from '@/components/layout';
-
 	import { Toaster } from '@/components/ui/sonner';
 	import { url } from '@/data';
+
 	import '../app.css';
 
 	const { children } = $props();

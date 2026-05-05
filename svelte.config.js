@@ -5,7 +5,9 @@ import alchemy from 'alchemy/cloudflare/sveltekit';
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: alchemy(),
+		adapter: alchemy({
+			fallback: '404.html',
+		}),
 		alias: {
 			'@': 'src/lib',
 			'@/*': 'src/lib/*',
