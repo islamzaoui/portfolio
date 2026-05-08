@@ -14,16 +14,19 @@ const app = await alchemy(packageJson.name, {
 	stateStore: (scope) => new CloudflareStateStore(scope),
 });
 
-const domains = app.stage === 'prod' ? ['www.islamzaoui.top'] : undefined;
+const isProd = app.stage === 'prod';
+
+const domains = isProd ? ['www.islamzaoui.top', 'islamzaoui.top'] : undefined;
 
 export const website = await SvelteKit('website', {
 	adopt: true,
 	domains,
+	url: !isProd,
 });
 
 console.log(`Started in: ${website.url}`);
 
-if (app.stage === 'prod') {
+if (isProd) {
 	await RedirectRule('apex-to-www', {
 		zone: 'islamzaoui.top',
 		description: 'Redirect islamzaoui.top to www.islamzaoui.top',
