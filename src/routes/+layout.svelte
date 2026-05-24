@@ -11,19 +11,16 @@
 </script>
 
 <svelte:head>
-	<title>Islam Zaoui - Full-Stack Web Developer</title>
+	<title>Islam Zaoui - Software Engineer</title>
 
 	<meta
 		name="description"
 		content="Check out my portfolio of projects and experience in software development."
 	/>
-	<meta
-		name="keywords"
-		content="Full-Stack Web Developer, Web Development, Software Engineer, Portfolio, Islam Zaoui"
-	/>
+	<meta name="keywords" content="Software Engineer, Web Development, Portfolio, Islam Zaoui" />
 	<meta name="author" content="Islam Zaoui" />
 
-	<meta property="og:title" content="Islam Zaoui - Full-Stack Web Developer" />
+	<meta property="og:title" content="Islam Zaoui - Software Engineer" />
 	<meta
 		property="og:description"
 		content="Check out my portfolio of projects and experience in software development."
@@ -34,7 +31,7 @@
 	<meta property="og:site_name" content="Islam Zaoui" />
 	<meta property="og:locale" content="en" />
 
-	<meta name="twitter:title" content="Islam Zaoui - Full-Stack Web Developer" />
+	<meta name="twitter:title" content="Islam Zaoui - Software Engineer" />
 	<meta
 		name="twitter:description"
 		content="Check out my portfolio of projects and experience in software development."

@@ -8,9 +8,8 @@
 <section id="about" class="w-full space-y-4">
 	<h2 class="text-2xl font-bold">About Me</h2>
 	<p class="text-justify">
-		Hi! I’m Islam, a Full-Stack Engineer with a deep focus on backend architecture. Passionate about
-		building bulletproof, high-performance systems that power seamless user experiences through
-		clean, type-safe, and scalable code.
+		Hi! I’m Islam, a Software Engineer. Passionate about building bulletproof, high-performance
+		systems that power seamless user experiences through clean, type-safe, and scalable code.
 	</p>
 </section>
 
